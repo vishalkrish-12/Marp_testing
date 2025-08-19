@@ -53,3 +53,59 @@ amp_slider  = IntSlider(min=1, max=5,  step=1, value=1, description="Amplitude")
 # Display the interactive controls and link them to plot_sine
 display(Markdown("## Adjust the Sliders Below"))
 interact(plot_sine, frequency=freq_slider, amplitude=amp_slider)
+
+# %% cell4
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate base data
+x = np.linspace(0, 2 * np.pi, 200)   # x is independent variable
+y = np.sin(x)                        # y depends on x
+
+# %% cell5
+from ipywidgets import FloatSlider, interact
+from IPython.display import Markdown, display
+
+def plot_sine(frequency, amplitude):
+    """
+    Plots a sine curve based on the slider inputs.
+    y2 depends on x, frequency, and amplitude.
+    """
+    y2 = amplitude * np.sin(frequency * x)   # new data depends on slider values
+    plt.figure(figsize=(6,3))
+    plt.plot(x, y2, color='teal')
+    plt.title(f"Sine Wave — freq: {frequency}, amp: {amplitude}")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.tight_layout()
+    plt.show()
+
+    # Dynamic markdown feedback
+    display(Markdown(
+        f"**Current settings:**  \n"
+        f"- Frequency = {frequency}  \n"
+        f"- Amplitude = {amplitude}  \n\n"
+        "↑ Drag the sliders to update the plot and see how the wave changes."
+    ))
+
+# %% cell6
+# Instantiate interactive sliders
+freq_slider = FloatSlider(
+    value=1.0,
+    min=0.5,
+    max=5.0,
+    step=0.1,
+    description='Frequency'
+)
+
+amp_slider = FloatSlider(
+    value=1.0,
+    min=0.5,
+    max=2.0,
+    step=0.1,
+    description='Amplitude'
+)
+
+# Wire widgets to the plotting function
+interact(plot_sine, frequency=freq_slider, amplitude=amp_slider)
+
