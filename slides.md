@@ -18,6 +18,7 @@ style: |
   }
 ---
 
+<!-- $math: katex -->
 <!-- _class: lead -->
 
 # Product Documentation
@@ -34,11 +35,17 @@ style: |
 
 ---
 
-<!-- _background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') -->
+
+
+
 
 # With a Background Image
 
-This slide uses a background image via Marp directive.
+This slide demonstrates a background image using Marp directives.
+
+> "Great documentation is as important as great code."
+
+![bg](sample_640×426.jpeg)
 
 ---
 
