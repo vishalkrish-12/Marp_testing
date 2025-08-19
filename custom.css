@@ -1,0 +1,12 @@
+@import 'default';
+
+section {
+  background-color: #f8f9fa;
+}
+h1, h2 {
+  color: #2a7ae2;
+}
+footer {
+  color: #888;
+  font-size: 0.8em;
+}
